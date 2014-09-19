@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Component Editor Prototype - New Page</title>
+    <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <!--<div id="includeModals"></div>-->
+    <!-- MODAL CONTENT - EDIT COMPONENT -->
+    <div id="modalGetContent" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Select Content</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Select the file or content accordingly...</p>
+                    <div class="alert alert-success" role="alert">
+                        <h2>Content was updated successfully!</h2>
+                        <h4>Your window will close within a few seconds or you may click "Close".</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitContent">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - EDIT COMPONENT -->
+
+    <!-- MODAL CONTENT - DELETE COMPONENT -->
+    <div id="modalDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Delete Component</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 class="alert alert-warning" role="alert">Are you sure you want to delete this component?</h2>
+                    <div class="alert alert-success" role="alert">
+                        <h2>Component was successfully deleted!</h2>
+                        <h4>Your window will close within a few seconds or you may click "Close".</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitDelete">Delete</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - DELETE COMPONENT -->
+
+    <!-- MODAL CONTENT - SIMULATE OPENING EXTERNAL EDITOR -->
+    <div id="modalEditor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">External Editor</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 class="alert alert-warning" role="alert">Simulating external editor opening...</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - SIMULATE OPENING EXTERNAL EDITOR -->
+
+    <!-- MODAL CONTENT - SIMULATE OPENING HTML FILE -->
+    <div id="modalOpenHtml" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Open HTML File</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 class="alert alert-warning" role="alert">Simulating the process of opening a HTML file...</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - SIMULATE OPENING HTML FILE -->
+
+    <!-- MODAL CONTENT - SIMULATE OPENING HTML PAGE FROM EXTERNAL URL -->
+    <div id="modalUrl" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Open HTML Page</h4>
+                </div>
+                <div class="modal-body">
+                    <h2>Enter URL</h2>
+                    <div class="row paddingBottom10">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" id="inputURLmodal" placeholder="e.g. http://docs.google.com/spreadsheet">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <h5>Simulating the process of opening a HTML page from an external URL...</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - SIMULATE OPENING HTML PAGE FROM EXTERNAL URL -->
+
+
+    <!-- HEADER -->
+    <div class="container-fluid">
+        <header class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="header">
+                    <a class="navbar-brand hidden-xs" href="index.html">
+                        <img src="images/logoRise.png" class="img-responsive" width="113" height="42" alt="Rise Vision">
+                    </a>
+                    <div class="loginContainer hidden-xs">
+                        <form role="form">
+                            <a href="#">Login / Logout</a>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- MOBILE TOP MENU-->
+                <div class="visible-xs row" style="margin-top:-50px;">
+                    <div class="col-xs-2 text-center" style="width:19%;">
+                        <a href="index.html" role="button"><span class="glyphicon glyphicon-home"></span></a>
+                    </div>
+                    <div class="col-xs-2 text-center" style="width:19%;">
+                        <a href="#" role="button" class="newAddBtn"><span class="glyphicon glyphicon-plus"></span></a>
+                    </div>
+                    <div class="col-xs-2 text-center" style="width:19%;">
+                        <a href="#modalEditor" role="button" data-toggle="modal"><span class="glyphicon glyphicon-new-window"></span></a>
+                    </div>
+                    <div class="col-xs-2 text-center" style="width:19%;">
+                        <a href="#" role="button" target="_blank"><span class="glyphicon glyphicon-globe"></span></a>
+                    </div>
+                    <div class="col-xs-2 text-center navbar-header" style="width:24%;">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div><!-- //MOBILE TOP MENU -->
+
+                <!-- TOP MENU NAVIGATION -->
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown activeNav">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open Rise Template <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="openTemplate.html">Template 1</a></li>
+                                <li><a href="openTemplate.html">Template 2</a></li>
+                                <li><a href="openTemplate.html">Template 3</a></li>
+                                <li><a href="openTemplate.html">Template 4</a></li>
+                                <li><a href="openTemplate.html">Template 5</a></li>
+                                <li><a href="openTemplate.html">Template 6</a></li>
+                                <li><a href="openTemplate.html">Template 7</a></li>
+                                <li><a href="openTemplate.html">Template 8</a></li>
+                                <li><a href="openTemplate.html">Template 9</a></li>
+                                <li><a href="openTemplate.html">Template 10</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#modalOpenHtml" data-toggle="modal">Open HTML Page</a></li>
+                        <li><a href="#modalUrl" data-toggle="modal">Open HTML Page from URL</a></li>
+                        <li><a href="new.html">Create New HTML Page</a></li>
+                        <li><a href="https://github.com/Rise-Vision/" target="_blank">Templates on GitHub</a></li>
+                        <li class="loginContainerMini"><a href="#">Login / Logout</a></li>
+                    </ul>
+                </div><!--//TOP MENU NAVIGATION -->
+
+            </div><!--//.container -->
+
+        <!-- CONTENT -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-5 col-xs-12">
+                    <h1>Template 2</h1>
+                    <div class="paddingBottom10">
+                        <a href="#modalGetContent" role="button" class="btn btn-primary btn-lg" data-toggle="modal">Save</a>
+                        <a href="#" role="button" class="btn btn-default btn-lg cancelAdd">Cancel</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-7 hidden-xs">
+                    <!-- SUB MENU NAVIGATION -->
+                    <div class="navbar navbar-primary pull-right subNav" role="navigation">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" class="text-center btn btn-default newAddBtn">Add<br/>Component</a>
+                            </li>
+                            <li>
+                                <a href="#modalEditor" class="text-center btn btn-default" data-toggle="modal">Edit in<br/>External Editor</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-center btn btn-default" target="_blank">Open in<br/>New Browser Tab</a>
+                            </li>
+                        </ul>
+                    </div><!--//SUB MENU NAVIGATION -->
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- COMPONENT EDITOR -->
+                <div class="col-xs-12 mainPanel">
+                    <div class="panel panel-default" style="height:320px;">
+                        <div class="panel-body">
+                            <h2 style="margin-top:0;">Component Editor goes here...</h2>
+                            <code style="display:block;height:180px;">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                &lt;head&gt;
+                                &lt;title&gt;&lt;/title&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                            </code>
+                        </div><!-- //.panel-body -->
+                    </div>
+                </div><!-- //COMPONENT EDITOR -->
+
+
+                <!-- SIDE PANEL -->
+                <div class="col-sm-5 col-md-4 col-xs-12 sidePanel">
+                    <div class="panel panel-default">
+                        <!-- ADD COMPONENT -->
+                        <div class="panel-body addComponentContainer">
+                            <h2 style="margin-top:0;">Add Component</h2>
+                            <form class="form-horizontal component" role="form">
+
+                                <div class="addComponent row">
+                                    <div class="col-xs-12">
+
+                                        <!-- TAB PANEL -->
+                                        <div class="tabContainer">
+                                            <ul class="nav nav-tabs" role="tablist" id="addComponentTab">
+                                                <li class="active"><a href="#locationAdd" role="tab" data-toggle="tab">Location</a></li>
+                                                <li><a href="#typeAdd" role="tab" data-toggle="tab">Type</a></li>
+                                                <li><a href="#urlAdd" role="tab" data-toggle="tab">URL</a></li>
+                                            </ul>
+
+                                            <div class="tab-content">
+                                                <!-- COMPONENT LOCATION -->
+                                                <div class="tab-pane active" id="locationAdd">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <h4>Enter Component's Location<small> <span class="glyphicon glyphicon-question-sign" data-toggle="popover" data-content="Enter the immediate preceding Element and ID for the location of the component."></span></small></h4>
+                                                            <p>Enter the immediate preceding Element and ID for the location of the component.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="inputElement3" class="col-xs-2 control-label labelAdd">Element:</label>
+                                                        <div class="col-xs-9">
+                                                            <input type="text" class="form-control" id="inputElement3" placeholder="Element">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="inputElement4" class="col-xs-2 control-label labelAdd">ID:</label>
+                                                        <div class="col-xs-9">
+                                                            <input type="text" class="form-control" id="inputElement4" placeholder="ID">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-xs-12 text-right">
+                                                            <a role="button" class="btn btn-default cancelAdd">Cancel</a>
+                                                            <a href="#typeAdd" role="button" class="btn btn-primary next" data-toggle="tab">Next</a>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- COMPONENT LOCATION -->
+
+                                                <!-- COMPONENT TYPE -->
+                                                <div class="tab-pane" id="typeAdd">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <h4>Select Component Type</h4>
+                                                            <p>Select the component type for this component.</p>
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsImage" value="image">
+                                                                            Image
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsImageFolder" value="imageFolder">
+                                                                            Image Folder
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsCalendar" value="calendar">
+                                                                            Google Calendar
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsSpreadsheet" value="spreadsheet" checked>
+                                                                            Google Spreadsheet
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-xs-6">
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsVideo" value="video">
+                                                                            Video
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsVideoFolder" value="videoFolder">
+                                                                            Video Folder
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="radio">
+                                                                        <label>
+                                                                            <input type="radio" name="optionsType" id="optionsText" value="text">
+                                                                            Text
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <div class="col-xs-12 text-right">
+                                                                        <a href="#locationAdd" role="button" class="btn btn-default previous">Previous</a>
+                                                                        <a href="#urlAdd" role="button" class="btn btn-primary next" data-toggle="tab">Next</a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //COMPONENT TYPE -->
+                                                <!-- URL -->
+                                                <div class="tab-pane" id="urlAdd">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <h4>Update URL<small> <span class="glyphicon glyphicon-question-sign" data-toggle="popover" data-content="Do you want to change the URL?"></span></small></h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row paddingBottom10">
+                                                        <div class="col-xs-12">
+                                                            <input type="text" class="form-control" id="inputURL" placeholder="URL" value="http://docs.google.com/spreadsheet">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-xs-12 text-right">
+                                                            <a href="#typeAdd" role="button" class="btn btn-default previous">Previous</a>
+                                                            <a href="#" role="button" id="submitAdd" class="btn btn-default previous">Test Location</a>
+
+                                                            <!-- LAUNCH MODAL -->
+                                                            <a href="#modalGetContent" role="button" class="btn btn-primary" data-toggle="modal">Next</a>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div><!-- //URL -->
+                                            </div><!-- //.tab-content -->
+                                        </div><!-- //TAB PANEL -->
+                                    </div>
+                                </div><!-- // COMPONENT -->
+                            </form>
+
+                        </div><!-- //ADD COMPONENT -->
+
+                    </div>
+                </div><!-- //SIDE PANEL -->
+
+            </div><!-- //.row -->
+
+        </div><!--//CONTENT -->
+
+        <footer class="footer">
+            <div class="container text-center">
+                Footer
+            </div>
+        </footer><!-- //FOOTER -->
+    </div><!--//.container-fluid -->
+
+
+
+
+<!-- JavaScript files...
+================================================== -->
+<script src="javascripts/jquery-1.11.1.min.js"></script>
+<script src="javascripts/bootstrap.js"></script>
+<script src="javascripts/custom.js"></script>
+</body>
+</html>

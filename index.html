@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Component Editor Prototype</title>
+    <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <!-- MODAL CONTENT - SIMULATE OPENING HTML FILE -->
+    <div id="modalOpenHtml" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Open HTML File</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 class="alert alert-warning" role="alert">Simulating the process of opening a HTML file...</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - SIMULATE OPENING HTML FILE -->
+
+    <!-- MODAL CONTENT - SIMULATE OPENING HTML PAGE FROM EXTERNAL URL -->
+    <div id="modalUrl" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Open HTML Page</h4>
+                </div>
+                <div class="modal-body">
+                    <h2>Enter URL</h2>
+                    <div class="row paddingBottom10">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" id="inputURLmodal" placeholder="e.g. http://docs.google.com/spreadsheet">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        <h5>Simulating the process of opening a HTML page from an external URL...</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- //MODAL CONTENT - SIMULATE OPENING HTML PAGE FROM EXTERNAL URL -->
+
+    <!-- HEADER -->
+    <div class="container-fluid">
+        <header class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="header">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logoRise.png" class="img-responsive" width="113" height="42" alt="Rise Vision">
+                    </a>
+                    <!-- on mobile home page but then add "hidden-xs" on other pages-->
+                    <div class="loginContainer">
+                        <form role="form">
+                            <a href="#">Login / Logout</a>
+                        </form>
+                    </div><!-- //on mobile home page but then add "hidden-xs" on other pages-->
+                </div>
+
+                <!-- NOT ON MOBILE HOME PAGE -->
+                <div class="navbar-collapse collapse hidden-xs">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open Rise Template <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="openTemplate.html">Template 1</a></li>
+                                <li><a href="openTemplate.html">Template 2</a></li>
+                                <li><a href="openTemplate.html">Template 3</a></li>
+                                <li><a href="openTemplate.html">Template 4</a></li>
+                                <li><a href="openTemplate.html">Template 5</a></li>
+                                <li><a href="openTemplate.html">Template 6</a></li>
+                                <li><a href="openTemplate.html">Template 7</a></li>
+                                <li><a href="openTemplate.html">Template 8</a></li>
+                                <li><a href="openTemplate.html">Template 9</a></li>
+                                <li><a href="openTemplate.html">Template 10</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#modalOpenHtml" data-toggle="modal">Open HTML Page</a></li>
+                        <li><a href="#modalUrl" data-toggle="modal">Open HTML Page from URL</a></li>
+                        <li><a href="new.html">Create New HTML Page</a></li>
+                        <li><a href="https://github.com/Rise-Vision/" target="_blank">Templates on GitHub</a></li>
+                        <li class="loginContainerMini"><a href="#">Login / Logout</a></li>
+                    </ul>
+                </div><!--//.nav-collapse -->
+                <!-- //NOT ON MOBILE HOME PAGE -->
+
+            </div><!--//.container -->
+        </header><!-- //HEADER -->
+
+
+        <!-- CONTENT -->
+        <div class="container">
+
+            <h1>Component Editor</h1>
+            <div class="row">
+                <div class="col-sm-4 hidden-xs">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h2 style="margin-top:0;">What is a Component Editor?</h2>
+                            The Component Editor inspects the HTML of whatever page it opens and enumerates any Web Components that are identified as ours, and then it presents the list of the Components, and their Properties, such that the User can update the properties, or add more Components to the page. Each component will have distinct properties, but they will share similar types across them.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 hidden-xs">
+                    <img src="images/coke.jpg" class="img-responsive" alt="Example Display">
+                </div>
+
+                <!--MOBILE HOMEPAGE ONLY-->
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg btn-group btn-group-justified">
+                    <a href="#" role="button" class="btn btn-default" style="height:80px;" data-toggle="collapse" data-target=".nav-collapse-templates">Open Rise<br/>Template <span class="caret"></span></a>
+                    <a href="#modalOpenHtml" data-toggle="modal" role="button" class="btn btn-default" style="height:80px;">Open HTML Page</a>
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg btn-group btn-group-justified">
+                    <a href="#modalUrl" data-toggle="modal" role="button" class="btn btn-default" style="height:80px;">Open HTML Page<br/>from URL</a>
+                    <a href="new.html" role="button" class="btn btn-default" style="height:80px;">Create New HTML<br/>Page</a>
+                </div>
+
+                <div class="nav-collapse-templates collapse  hidden-sm hidden-md hidden-lg">
+                    <ul class="nav navbar-nav navMobileHome">
+                                <li><a href="openTemplate.html">Template 1</a></li>
+                                <li><a href="openTemplate.html">Template 2</a></li>
+                                <li><a href="openTemplate.html">Template 3</a></li>
+                                <li><a href="openTemplate.html">Template 4</a></li>
+                                <li><a href="openTemplate.html">Template 5</a></li>
+                                <li><a href="openTemplate.html">Template 6</a></li>
+                                <li><a href="openTemplate.html">Template 7</a></li>
+                                <li><a href="openTemplate.html">Template 8</a></li>
+                                <li><a href="openTemplate.html">Template 9</a></li>
+                                <li><a href="openTemplate.html">Template 10</a></li>
+                    </ul>
+                </div><!--//.nav-collapse -->
+                <!--//MOBILE HOMEPAGE ONLY-->
+
+                <div class="col-sm-4 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h2 style="margin-top:0;">Contribute to our Templates on GitHub</h2>
+                            <p>Please help contribute to our open source templates on GitHub. You may fork and submit pull requests.</p>
+                            <a href="https://github.com/Rise-Vision/" target="_blank" role="button" class="btn btn-primary btn-lg pull-right">Templates on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--//CONTENT -->
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container text-center">
+                Footer
+            </div>
+        </footer><!-- //FOOTER -->
+    </div><!--//.container-fluid -->
+
+
+    <!-- JavaScript files...
+    ================================================== -->
+    <script src="javascripts/jquery-1.11.1.min.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
+    <script src="javascripts/custom.js"></script>
+</body>
+</html>
