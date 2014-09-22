@@ -170,4 +170,16 @@ $(function () {
         }, 3000);
     });
 
+    //--MODAL -- MOVE COMPONENT
+    //--on submit show success message for a few seconds, close modal, then refresh parent page --//
+    $("#submitMove").click(function(){
+        $(".alert-success").show();
+        window.setTimeout(function(){
+            $('#modalMove').modal('hide');
+            $('#modalMove').on('hidden.bs.modal', function (e) {
+                location.reload(true);
+            })
+        }, 3000);
+    });
+
 });
